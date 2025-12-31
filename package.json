@@ -1,13 +1,21 @@
 {
-  "name": "cypress",
+  "name": "devfinance-cypress-automation",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projeto de automação de testes E2E para a aplicação DevFinance utilizando Cypress.",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "npm run cy:run"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cypress",
+    "e2e",
+    "testing",
+    "automation",
+    "qa",
+    "javascript"
+  ],
   "license": "ISC",
   "devDependencies": {
     "cypress": "^12.5.0"
