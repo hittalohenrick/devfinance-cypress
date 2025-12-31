@@ -53,10 +53,12 @@ npm run cy:open
 devfinance-cypress/
 ├── cypress/
 │   ├── e2e/              # Arquivos de teste (*.cy.js)
-│   ├── fixtures/         # Massas de dados estáticos (JSON)
+│   ├── fixtures/         # Massas de dados estáticas (JSON)
 │   └── support/          # Comandos customizados e configurações globais
 ├── cypress.config.js     # Configuração principal do Cypress
+├── jsconfig.json         # Configuração do IntelliSense (VS Code)
 ├── package.json          # Dependências e Scripts
+├── package-lock.json     # Versões exatas das dependências
 └── README.md             # Documentação
 
 ```
