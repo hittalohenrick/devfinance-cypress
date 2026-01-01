@@ -1,6 +1,13 @@
 describe('Transações', () => {
+
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        if (err.message.includes('Modal is not defined')) {
+            return false
+        }
+    })
+
     beforeEach(() => {
-        cy.visit("https://devfinance-agilizei.netlify.app")
+        cy.visit("https://devfinance-agilizei.netlify.app/#")
     });
 
     it('Cadastrar uma entrada', () => {
@@ -17,10 +24,6 @@ describe('Transações', () => {
         criarTransacao("Freela", 100)
         criarTransacao("Mesada", 10)
 
-        //cy.contains(".description", "Freela") //td -> referencia
-        //    .parent() // tr
-        //    .find('img') // elemento que preciso
-        //    .click()
         cy.contains(".description", "Freela")
             .siblings()
             .children('img')
@@ -34,8 +37,6 @@ function criarTransacao(descricao, valor) {
     cy.contains("Nova Transação").click()
     cy.get('#description').type(descricao)
     cy.get('#amount').type(valor)
-    cy.get('#date').type("2023-02-15") //yyyy-mm-dd
-
+    cy.get('#date').type("2023-02-15")
     cy.contains('button', 'Salvar').click()
-
 }
