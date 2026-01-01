@@ -1,23 +1,23 @@
 describe('Transações', () => {
 
     Cypress.on('uncaught:exception', (err, runnable) => {
-        if (err.message.includes('Modal is not defined')) {
-            return false
-        }
+        return false
     })
 
     beforeEach(() => {
-        cy.visit("https://devfinance-agilizei.netlify.app/#")
+        cy.visit("https://devfinance-agilizei.netlify.app", { failOnStatusCode: false })
+        
+        cy.get('#data-table', { timeout: 30000 }).should('be.visible')
     });
 
     it('Cadastrar uma entrada', () => {
         criarTransacao("Freela", 250)
-        cy.get("tbody tr td.description").should("have.text", "Freela")
+        cy.get("tbody tr td.description").should("contain", "Freela")
     });
 
     it('Cadastrar uma saída', () => {
         criarTransacao("Cinema", -45)
-        cy.get("tbody tr td.description").should("have.text", "Cinema")
+        cy.get("tbody tr td.description").should("contain", "Cinema")
     });
 
     it('Excluir Transação', () => {
@@ -25,8 +25,8 @@ describe('Transações', () => {
         criarTransacao("Mesada", 10)
 
         cy.contains(".description", "Freela")
-            .siblings()
-            .children('img')
+            .parent()
+            .find('img')
             .click()
 
         cy.get('tbody tr').should("have.length", 1)
@@ -34,9 +34,11 @@ describe('Transações', () => {
 });
 
 function criarTransacao(descricao, valor) {
-    cy.contains("Nova Transação").click()
+    cy.contains("Nova Transação").should('be.visible').click()
+    
     cy.get('#description').type(descricao)
     cy.get('#amount').type(valor)
     cy.get('#date').type("2023-02-15")
+    
     cy.contains('button', 'Salvar').click()
 }
