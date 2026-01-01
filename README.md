@@ -2,7 +2,7 @@
 ![Cypress Tests](https://github.com/hittalohenrick/devfinance-cypress/actions/workflows/main.yml/badge.svg)
 
 ### 📋 Sobre o Projeto
-Este repositório contém uma suíte de testes automatizados **End-to-End (E2E)** desenvolvida com **Cypress** do Curso **Cypress Direo ao Ponto - Agilizei**. O objetivo é garantir a qualidade e a funcionalidade das principais operações financeiras da aplicação web **DevFinance**.
+Este repositório contém uma suíte de testes automatizados **End-to-End (E2E)** desenvolvida com **Cypress** do Curso **Cypress Direto ao Ponto - Agilizei**. O objetivo é garantir a qualidade e a funcionalidade das principais operações financeiras da aplicação web **DevFinance**.
 
 O projeto valida fluxos críticos como cadastro de entradas, saídas e remoção de transações, assegurando que o cálculo de saldo e a interface respondam corretamente.
 
